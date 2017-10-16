@@ -1,0 +1,21 @@
+html, body {
+	width: 200px;
+	font-family: "Calibri", Georgia, Serif;
+	
+}
+
+ul, li{
+  padding-left:5px;
+  list-style-type: none;
+}
+
+.parent {
+	cursor: hand;
+	cursor: pointer;
+}
+
+/* Second Level */
+ul ul{
+	display: none;
+  	padding-left:10px;
+}

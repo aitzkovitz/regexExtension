@@ -1,0 +1,16 @@
+/* highlighting results */
+.highlighted {
+	background-color: yellow;
+	color: #000000;
+	
+}
+
+.error {
+	background-color: red;
+	font-weight: bold;
+}
+
+.okay {
+	background-color: lightgreen;
+	font-weight: bold;
+}

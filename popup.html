@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+  	<head>
+  		<script src="js/popup.js"></script>
+  		<script src="lib/jquery-3.2.1.js"></script>
+  		<link rel="stylesheet" href="css/popup.css">
+
+  	</head>
+  	<body>
+
+  		<div class="main-content">
+  			<div id="mode-selector">
+  				<!-- manual checkbox/slider -->
+  				<input type="checkbox" id="manual-select">
+  				<label for="manual-selector">Manual Entry</label>
+  			</div>
+  		
+	  		<div class="main">
+	  			<form id="autoForm">
+		  			<ul>
+
+		  				<li class="email parent">Email Addresses
+		  					<ul class="sub-email child">
+		  						<li>
+		  							<input type="checkbox" id="email" name="email" checked>
+		  							<label for="email">Email Addresses</label>
+		  						</li>
+
+		  					</ul>
+		  				</li>
+
+		  				<li class="phone parent">Phone Numbers
+		  					<ul class="sub-phone child">
+		  						<li>
+		  							<input type="checkbox" id="phone" name="phone" checked>
+		  							<label for="phone">Phone Numbers</label>
+		  						</li>
+
+		  					</ul>
+		  				</li>
+
+		  				<li class="disclaimers parent">Disclaimer
+		  					<ul class="sub-disclaimers child">
+		  						<li>
+		  							<input type="checkbox" id="disclaimers" name="disclaimers" checked>
+		  							<label for="disclaimers">Disclaimer Symbols</label>
+		  						</li>
+
+		  					</ul>
+		  				</li>
+
+		  				<li class="dates parent">Date
+		  					<ul class="sub-dates child">
+		  						<li>
+		  							<input type="checkbox" id="full-date" name="full-date" checked>
+		  							<label for="full-date">Full Dates</label>
+		  						</li>
+		  						<li>
+		  							<input type="checkbox" id="day" name="day" checked>
+		  							<label for="day">Days</label>
+		  						</li>
+		  						<li>
+		  							<input type="checkbox" id="month" name="month" checked>
+		  							<label for="month">Months</label>
+		  						</li>
+		  						<li>
+		  							<input type="checkbox" id="year" name="year" checked>
+		  							<label for="year">Years</label>
+		  						</li>
+		  					</ul>
+		  				</li>
+
+						<li class="prices parent">Prices
+							<ul class="sub-prices child">
+		  						<li>
+		  							<input type="checkbox" id="price1" name="price1" checked>
+		  							<label for="price1">Price Format 1</label>
+		  						</li>
+		  					</ul>
+						</li>
+
+						<li class="addresses parent">Addresses
+							<ul class="sub-addresses child">
+		  						<li>
+		  							<input type="checkbox" id="state" name="state" checked>
+		  							<label for="state">State</label>
+		  						</li>
+		  						<li>
+		  							<input type="checkbox" id="zip" name="zip" checked>
+		  							<label for="zip">Zip Code</label>
+		  						</li>
+		  						<li>
+		  							<input type="checkbox" id="address" name="address" checked>
+		  							<label for="address">Full Address</label>
+		  						</li>
+		  					</ul>
+						</li>
+
+						<li class="misc parent">Misc.
+							<ul class="sub-misc child">
+		  						<li>
+		  							<input type="checkbox" id="percent" name="percent" checked>
+		  							<label for="percent">Percentage</label>
+		  						</li>
+		  						<li>
+		  							<input type="checkbox" id="time" name="time" checked>
+		  							<label for="time">Time</label>
+		  						</li>
+		  					</ul>
+						</li>
+
+		  			</ul>
+	  			</form>
+  				<!-- Only show if manual is on -->
+		  		<div class="main" id="manual" style="display:none;">
+		  			<!-- two inline textboxes: one for raw regex, the other for modifiers -->
+		  			<input type="text" id="manualTextbox" class="manualBox">
+		  			<label for="manualTextbox">Regex</label>
+
+		  			<input type="text" id="modifiersTextbox" class="manualBox">
+	  				<label for="modifiers">Modifiers</label>
+
+	  				<input type="button" id="submit-manual" class="manualBox" value="Search">
+		  		</div>
+		  		<div>
+		  			<input type="button" id="clear" class="clear" value="Clear Matches">
+		  		</div>
+	  		</div>
+
+
+  		</div>
+  	</body>
+</html>
+
