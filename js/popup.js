@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function(){
 	
 	// update on form changes
 	$("li[class*='parent']").click(function(){
-		$(this).children("ul[class*='child']").slideToggle("slow", function(){
+		$(this).children("ul[class*='child']").slideToggle("fast", function(){
 			console.log('toggled');
 		});
 	});

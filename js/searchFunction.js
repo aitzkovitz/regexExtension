@@ -2,7 +2,7 @@
 //TBI: clear errors will be highlighted red
 //TBI: user selects tag to be searched
 //TBI: save custom regex in user options
-//TBI: dont rerun whole check after changing options
+
 
 // global categories
 globalCategories = [

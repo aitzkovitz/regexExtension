@@ -9,7 +9,7 @@
   	<body>
 
   		<div class="main-content">
-  			<div style="width:100%;text-align:right;">
+  			<div id="mode-toggle" style="width:100%;text-align:right;">
     			<label for="myonoffswitch">Manual&#160;&#160;</label>
     			<div class="onoffswitch">
       				<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
@@ -21,8 +21,8 @@
 	  		<div class="main-options">
 	  			<form id="autoForm">
 		  			<ul>
-
 		  				<li class="email parent">Email Addresses
+		  					<img src="img/options.png" width="13px" height="13px" align="right">
 		  					<ul class="sub-email child">
 		  						<li>
 		  							<input type="checkbox" id="email" name="email" checked>
@@ -33,6 +33,7 @@
 		  				</li>
 
 		  				<li class="phone parent">Phone Numbers
+		  					<img src="img/options.png" width="13px" height="13px" align="right">
 		  					<ul class="sub-phone child">
 		  						<li>
 		  							<input type="checkbox" id="phone" name="phone" checked>
@@ -43,6 +44,7 @@
 		  				</li>
 
 		  				<li class="disclaimers parent">Disclaimer
+		  					<img src="img/options.png" width="13px" height="13px" align="right">
 		  					<ul class="sub-disclaimers child">
 		  						<li>
 		  							<input type="checkbox" id="disclaimers" name="disclaimers" checked>
@@ -52,6 +54,7 @@
 		  				</li>
 
 		  				<li class="dates parent">Date
+		  					<img src="img/options.png" width="13px" height="13px" align="right">
 		  					<ul class="sub-dates child">
 		  						<li>
 		  							<input type="checkbox" id="full-date" name="full-date" checked>
@@ -60,6 +63,7 @@
 		  						<li>
 		  							<input type="checkbox" id="day" name="day" checked>
 		  							<label for="day">Days</label>
+		  							<img src="img/options.png" width="10px" height="10px" align="right">
 		  						</li>
 		  						<li>
 		  							<input type="checkbox" id="month" name="month" checked>
@@ -73,6 +77,7 @@
 		  				</li>
 
 						<li class="prices parent">Prices
+							<img src="img/options.png" width="13px" height="13px" align="right">
 							<ul class="sub-prices child">
 		  						<li>
 		  							<input type="checkbox" id="price1" name="price1" checked>
@@ -82,6 +87,7 @@
 						</li>
 
 						<li class="addresses parent">Addresses
+							<img src="img/options.png" width="13px" height="13px" align="right">
 							<ul class="sub-addresses child">
 		  						<li>
 		  							<input type="checkbox" id="state" name="state" checked>
@@ -99,6 +105,7 @@
 						</li>
 
 						<li class="misc parent">Misc.
+							<img src="img/options.png" width="13px" height="13px" align="right">
 							<ul class="sub-misc child">
 		  						<li>
 		  							<input type="checkbox" id="percent" name="percent" checked>
@@ -124,12 +131,10 @@
 
 	  				<input type="button" id="submit-manual" class="manualBox" value="Search">
 		  		</div>
-		  		<div>
+		  		<div class="clear">
 		  			<input type="button" id="clear" class="clear" value="Clear Matches">
 		  		</div>
 	  		</div>
-
-
   		</div>
   	</body>
 </html>
