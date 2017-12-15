@@ -2,42 +2,51 @@ document.addEventListener('DOMContentLoaded', function(){
 	"use strict";
 
 	// store useful elements
-	var manualCheck = $('#manual-select');
+	var manualCheck = $('#myonoffswitch');
 	var modifiers = $('#modifiersTextbox');
 	var userRegex = $('#manualTextbox');
 
 	var submitSearch = function(){
 		var checkedArray = []; 
-		$('input:checked').each(function(){
+		$('input:checked').not('#myonoffswitch').each(function(){
     		checkedArray.push($(this).attr('name'));
 		});
 		
 		// make custom object to be turned into regex
 		var userRegexObject = {"expression" : userRegex.val(), "mods" : modifiers.val()};
-		var eventInfo = { "mode": manualCheck.is(':checked') , "formInfo": checkedArray, "userRegexInfo": userRegexObject }; 
+		var eventInfo = { "mode": !manualCheck.is(':checked') , "formInfo": checkedArray, "userRegexInfo": userRegexObject }; 
 
 		chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
   			chrome.tabs.sendMessage(tabs[0].id, {
-  				"regexInfo": userRegexObject,
-  				"eventInfo": eventInfo,
-				"clearMatches": false
+  				"action"		: "initialSearch",
+  				"regexInfo"		: userRegexObject,
+  				"eventInfo"		: eventInfo,
+				"clearMatches"	: false
   			}, function(response) {
     			console.log(response.result);
   			});
 		});
-
-
 
 	};
-	
-	function clearMatches(){
+
+	function updateView(clearFlag){
+		// get array of checked boxes
+		var checkedArray = [];
+		if (!clearFlag){
+			$('input:checked').not('#myonoffswitch').each(function(){
+    			checkedArray.push($(this).attr('name'));
+			});	
+		}
+		console.log('update');
+
 		chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
 			chrome.tabs.sendMessage(tabs[0].id, {
-  				"clearMatches": true
+				"action"	: "updateView",
+  				"updateView": checkedArray
   			}, function(response) {
     			console.log(response.result);
   			});
-		});
+		});	
 	}
 	
 	submitSearch();
@@ -51,31 +60,38 @@ document.addEventListener('DOMContentLoaded', function(){
 	
 	// clear form
 	$('#clear').click(function(){
-		clearMatches();
+		//clearMatches();
+		updateView(1);
 	});
 	
 	// only toggle child when parent is clicked
 	$(".child").on("click", function(event) {
         event.stopPropagation();
-   });
+   	});
 	
 	
 	$('#autoForm').change( function(){
-		!manualCheck.is(':checked') && submitSearch();
+		if (manualCheck.is(':checked')){
+			updateView(0);
+		}
 	});
 
 	$('#submit-manual').click(function(){
-		manualCheck.is(':checked') && userRegex.val() !== "" && submitSearch();
+		if (manualCheck.is(':checked') && userRegex.val() !== ""){
+			submitSearch();
+		}
 	});
 
-    $('#manual-select').change(function(){
+    $('#myonoffswitch').change(function(){
 	    if(this.checked){
-			$('#autoForm').fadeOut('fast');
-	        $('#manual').fadeIn('fast');
+			$('#autoForm').fadeOut('fast', function(){
+				$('#manual').fadeIn('fast');
+			});
 			
 	    } else {
-	        $('#manual').fadeOut('fast');
-			$('#autoForm').fadeIn('fast');
+	        $('#manual').fadeOut('fast', function(){
+	        	$('#autoForm').fadeIn('fast');
+	        });
 	    }
 	});
 });
