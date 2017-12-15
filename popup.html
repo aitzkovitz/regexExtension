@@ -9,13 +9,16 @@
   	<body>
 
   		<div class="main-content">
-  			<div id="mode-selector">
-  				<!-- manual checkbox/slider -->
-  				<input type="checkbox" id="manual-select">
-  				<label for="manual-selector">Manual Entry</label>
+  			<div style="width:100%;text-align:right;">
+    			<label for="myonoffswitch">Manual&#160;&#160;</label>
+    			<div class="onoffswitch">
+      				<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+      				<label class="onoffswitch-label" for="myonoffswitch"></label>
+    			</div>
+    			<label for="myonoffswitch">&#160;&#160;Auto</label>
   			</div>
   		
-	  		<div class="main">
+	  		<div class="main-options">
 	  			<form id="autoForm">
 		  			<ul>
 
@@ -45,7 +48,6 @@
 		  							<input type="checkbox" id="disclaimers" name="disclaimers" checked>
 		  							<label for="disclaimers">Disclaimer Symbols</label>
 		  						</li>
-
 		  					</ul>
 		  				</li>
 
@@ -118,7 +120,7 @@
 		  			<label for="manualTextbox">Regex</label>
 
 		  			<input type="text" id="modifiersTextbox" class="manualBox">
-	  				<label for="modifiers">Modifiers</label>
+	  				<label for="modifiers">Mods.</label>
 
 	  				<input type="button" id="submit-manual" class="manualBox" value="Search">
 		  		</div>
